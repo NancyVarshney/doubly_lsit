@@ -105,7 +105,40 @@ class Node {
             }
         }
 
-        
+        public void deletefirst()
+        {
+            if(isempty())
+            {
+                System.out.println("list is empty");
+            }
+            else
+            {
+                Node temp=start;
+                System.out.println("deleted elemnt from first "+temp.getdata());
+                start=temp.getnext();
+            }
+        }
+
+        public void deletelast()
+        {
+            if(isempty())
+            {
+                System.out.println("list is empty");
+            }
+
+            else
+            {
+                Node temp=start;
+                Node pre=null;
+                while(temp.next!=null)
+                {
+                    pre=temp;
+                    temp=temp.getnext();
+                }
+                System.out.println("deleted element from last"+temp.getdata());
+                pre.setnext(null);
+            }
+        }
         public static void main(String[] args) {
             Doubly obj=new Doubly();
         obj.insertfirst(5);
@@ -114,6 +147,10 @@ class Node {
             obj.insertfirst(2);
             obj.insertfirst(1);
             obj.insertlast(6);
+            obj.display();
+            obj.deletefirst();
+            obj.display();
+            obj.deletelast();
             obj.display();
     }
     }
